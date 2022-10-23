@@ -1,0 +1,29 @@
+<div class="row d-flex justify-content-center mt-3">
+  <div class="col-md-6 border rounded shadow py-2">
+    <%= form_for(@article) do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :title, class: 'fs-5' %>
+        <%= f.text_field :title, class: 'form-control shadow-sm', disabled: !f.object.new_record? %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :author, class: 'fs-5' %>
+        <%= f.text_field :author, class: 'form-control shadow-sm', disabled: !f.object.new_record? %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :text, class: 'fs-5' %>
+        <%= f.text_area :body, class: 'form-control shadow-sm', rows: 15 %>
+      </div>
+
+      <div class="actions float-start">
+        <%= link_to "Назад", articles_path(@articles), {:class => 'btn btn-outline-secondary'} %>
+      </div>
+
+      <div class="actions float-end">
+        <%= f.submit 'Сохранить', class: 'btn btn-primary rounded-pill shadow-sm' %>
+      </div>
+    <% end %>
+  </div>
+</div>

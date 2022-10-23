@@ -1,0 +1,25 @@
+<div class="input-group mb-5">
+  <span class="input-group-text" id="basic-addon3">Поиск записей</span>
+  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+  <button class="btn btn-secondary">Поиск</button>
+</div>
+<div class="md-2">
+  <%= link_to 'Добавить статью', new_article_path(@article), class: "btn btn-primary mb-1" %>
+  <div class="pagination float-end">
+    <%= will_paginate @articles, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
+  </div>
+  <table class="table table-bordered table-light table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Автор</th>
+      <th>Название</th>
+      <th>Дата изменения</th>
+    </tr>
+      <% @articles.each do |article| %>
+        <%= render partial: 'articles/article', locals: { article: article } %>
+      <% end %>
+  </table>
+  <div class="pagination float-end">
+    <%= will_paginate @articles, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
+  </div>
+</div>

@@ -1,3 +1,8 @@
 class Article < ApplicationRecord
-  has_many :article_texts, dependent: :destroy
+  include Searchable
+
+  validates :title, presence: true
+  validates :author, presence: true
+
+  has_paper_trail
 end

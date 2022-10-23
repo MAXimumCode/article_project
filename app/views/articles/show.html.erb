@@ -1,0 +1,24 @@
+<div class="row d-flex justify-content-center mt-3">
+  <div class="col-md-6 border rounded shadow py-2">
+    <h1 class="text-center"><%= @article.title %></h1>
+    <div>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Предыдущий вариант текста</th>
+          <th scope="col">Текущий вариант текста</th>
+        </tr>
+        </thead>
+        <tbody>
+          <td><%= @article.versions.last.reify&.body %></td>
+          <td><%= @article.body %></td>
+        </tbody>
+      </table>
+    </div>
+  <div class="text-center">
+    <%= link_to 'Редактировать', edit_article_path(@article), class: "btn btn-primary mb-1 float-start" %>
+    <%= link_to 'Удалить', article_path(@article), method: :delete,  class: "btn btn-danger mb-1", data: {confirm: 'Вы уверены?'} %>
+    <%= link_to "Назад", articles_path(@articles), :class => 'btn btn-outline-secondary float-end' %>
+  </div>
+  </div>
+</div>
